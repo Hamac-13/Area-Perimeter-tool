@@ -40,7 +40,7 @@ while true:
         elif shape in circle:
           r = validator("Radius ")
           perimeter = circle_perimeter(r)
-          print(perimeter)
+      print(perimeter)
         
     else:
       print("no")
