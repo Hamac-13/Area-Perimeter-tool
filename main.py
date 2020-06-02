@@ -1,4 +1,4 @@
-from functions import validator, area_main, circle_area, perimeter_4_sided, circle_perimeter
+from functions import validator, area_main, circle_area, perimeter_4_sided, circle_perimeter, perimeter_3_sided
 
 
 true = True
@@ -33,7 +33,10 @@ while true:
             print(perimeter)
           perimeter = perimeter_4_sided(shape,x,y)
         elif shape in threeSided:
-          print("3")
+          side1 = validator("side length 1 ")
+          side2 = validator("side length 2 ")
+          side3 = validator("side length 3 ")
+          perimeter = perimeter_3_sided(side1, side2, side3)
         elif shape in circle:
           r = validator("Radius ")
           perimeter = circle_perimeter(r)
