@@ -6,5 +6,4 @@ history = []
 area_perimeter = ["area", "perimeter"]
 
 while history != "end":
-  history = main(history)
-  
+    history = main(history)

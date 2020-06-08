@@ -87,6 +87,10 @@ def perimeter_tool(oneInput, twoInputP, threeInput):
       x = validator("what is the side length or radius ")
       y = None
       z = None
+      z = None
+      function = functions.get(shape) 
+      perimeter = function(x, y, z)
+      perimeter = [shape, perimeter]
     elif shape in twoInputP:
       x = validator("What is the first side length")
       y = validator("What is the second side length")
