@@ -56,16 +56,20 @@ def area_tool(oneInput, twoInput):
     if shape in oneInput:
       x = validator("What is the radius or side-length ")
       y = None
+      function = functions.get(shape)
+      area = function(x, y)
+      area = [shape, area]
     elif shape in twoInput:
       x = validator("What is a side-length ")
       y = validator("What is the other side-length ")
+      function = functions.get(shape)
+      area = function(x, y)
+      area = [shape, area]
     elif shape == "end":
       break
     else:
       print("This is a shape that this tool is not designed to deal with")
-    function = functions.get(shape)
-    area = function(x, y)
-    area = [shape, area]
+
     #print(history)
     return area
 
@@ -87,13 +91,19 @@ def perimeter_tool(oneInput, twoInputP, threeInput):
       x = validator("What is the first side length")
       y = validator("What is the second side length")
       z = None
+      function = functions.get(shape) 
+      perimeter = function(x, y, z)
+      perimeter = [shape, perimeter]
     elif shape in threeInput:
       x = validator("What is the first side length ")
       y = validator("What is the second side length ")
       z = validator("What is the third side lenght ")
-    function = functions.get(shape)
-    perimeter = function(x, y, z)
-    perimeter = [shape, perimeter]
+      function = functions.get(shape)
+      perimeter = function(x, y, z)
+      perimeter = [shape, perimeter]
+    else:
+      print("This is a shape that this tool is not designed to deal with")
+      
     #print(history)
     return perimeter
 
@@ -104,7 +114,7 @@ def main(history):
   twoInput = ["triangle", "rectangle"]
   twoInputP = ["rectangle"]
   threeInput = ["triangle"]
-  area_perimeter = ["area", "perimeter"]
+  area_perimeter = ["area", "perimeter","history","end"]
   ap = input("Do you want to find area or perimeter ")
   true = True
   while true:
@@ -114,12 +124,20 @@ def main(history):
         num = perimeter_tool(oneInput, twoInputP, threeInput)
         shape = num[0]
         num1 = num[1]
+        history = historyAdding(ap, shape, num1, history)
+        print(history[-1])
       elif ap == "area":
         num = area_tool(oneInput, twoInput)
         shape = num[0]
         num1 = num[1]
-      #elif ap == "history":
+        history = historyAdding(ap, shape, num1, history)
+        print(history[-1])
+      elif ap == "history":
+        for i in history:
+          print(i)
+      elif ap == "end":
+        history = "end"
     else:
       break
-    history = historyAdding(ap, shape, num1, history)
+    
     return history

@@ -5,6 +5,6 @@ true = True
 history = []
 area_perimeter = ["area", "perimeter"]
 
-
-history = main(history)
-print(history[-1])
+while history != "end":
+  history = main(history)
+  
